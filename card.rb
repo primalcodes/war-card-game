@@ -6,16 +6,9 @@
 class Card
   attr_reader :suit, :rank
 
-  class CardError < StandardError; end
-
-  SUITS = %w[clubs diamonds hearts spades].freeze  
-  RANKS = (2..14).to_a # NOTE: No Jokers in WAR
-
   def initialize(suit:, rank:)
     @suit = suit
     @rank = rank
-
-    raise CardError, 'Invalid suit given' unless SUITS.include?(suit)
   end
 
   def name
